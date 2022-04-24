@@ -1,0 +1,27 @@
+---
+- name: Add Docker official GPG key
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add stable Docker repository into sources list
+  ansible.builtin.apt_repository:
+    repo: "deb https://download.docker.com/linux/ubuntu {{ release }} stable"
+    state: present
+
+- name: Install docker
+  apt:
+    pkg:
+    - docker-ce 
+    - docker-ce-cli 
+    - containerd.io
+
+- name: Install docker python package
+  pip:
+    name: docker
+
+- name: Add {{ system_user }} user to docker group
+  ansible.builtin.user:
+    name: "{{ system_user }}"
+    groups: docker
+    append: yes

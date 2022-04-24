@@ -1,0 +1,6 @@
+---
+- name: Unitedforu telegram bot deployment
+  remote_user: "{{ system_user }}"
+  hosts: telegram_bot
+  roles:
+    - roles/unitedforu-bot

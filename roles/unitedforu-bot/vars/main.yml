@@ -1,0 +1,4 @@
+image_name: unitedforu-bot
+image_tag: latest
+container_name: unitedforu-bot
+dockerhub_account: karandash8

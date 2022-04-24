@@ -1,0 +1,18 @@
+---
+- name: Install python
+  apt:
+    pkg:
+    - python3.8
+    - python3-pip
+
+- name: Set python version for python
+  community.general.alternatives:
+    name: python
+    link: /usr/bin/python
+    path: /usr/bin/python3.8
+
+- name: Set python version for python3
+  community.general.alternatives:
+    name: python3
+    link: /usr/bin/python3
+    path: /usr/bin/python3.8

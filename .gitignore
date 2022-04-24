@@ -1,0 +1,11 @@
+# Python virtual environment
+venv/
+
+# Ansible inventory file
+inventory
+
+# Ansible vault password file
+.password
+
+# Ansible vault secrets files
+**/vault.yml

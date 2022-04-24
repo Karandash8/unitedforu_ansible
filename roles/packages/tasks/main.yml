@@ -1,0 +1,20 @@
+---
+- name: Update all packages to their latest version
+  apt:
+    update_cache: yes
+    name: "*"
+    state: latest
+
+- name: Install common tools
+  apt:
+    pkg:
+    - vim
+    - htop
+    - ca-certificates
+    - curl
+    - gnupg
+    - lsb-release
+    - software-properties-common
+
+- include_tasks: python.yml
+- include_tasks: docker.yml

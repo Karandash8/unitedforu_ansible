@@ -1,0 +1,13 @@
+---
+- name: Ensure {{ system_user }} user exists
+  user:
+    name: "{{ system_user }}"
+    state: present
+    expires: -1
+    shell: /bin/bash
+
+- name: Add your public key to authorized_keys for user {{ system_user }}
+  authorized_key:
+    user: "{{ system_user }}"
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"

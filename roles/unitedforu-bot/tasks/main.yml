@@ -1,0 +1,26 @@
+---
+- include_vars: vault.yml
+
+- name: Create Google service account file
+  no_log: yes
+  template:
+    src: "templates/service_account.json.j2"
+    dest: "/home/{{ system_user }}/.service_account.json"
+    mode: 0600
+
+- name: Bringing unitedforu-bot container to {{ container_state }} state
+  no_log: yes
+  docker_container:
+    container_default_behavior: no_defaults
+    name: "{{ container_name }}"
+    image: "{{dockerhub_account}}/{{image_name}}:{{image_tag}}"
+    recreate: yes
+    state: "{{ container_state }}"
+    env:
+      TELEGRAM_API_TOKEN: "{{ TELEGRAM_API_TOKEN }}"
+      TELEGRAM_LIST_OF_ADMIN_IDS: "{{ TELEGRAM_LIST_OF_ADMIN_IDS }}"
+      GOOGLE_SPREADSHEET_ID: "{{ GOOGLE_SPREADSHEET_ID }}"
+      GOOGLE_RANGE_NAME: "{{ GOOGLE_RANGE_NAME }}"
+      GOOGLE_APPLICATION_CREDENTIALS_PATH: "{{ GOOGLE_APPLICATION_CREDENTIALS_PATH }}"
+    volumes:
+      - /home/{{ system_user }}/.service_account.json:/root/.service_account.json
