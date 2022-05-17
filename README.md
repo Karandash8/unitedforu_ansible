@@ -16,9 +16,9 @@ export VAULT_FILE=roles/unitedforu-bot/vars/vault.yml
 
 echo 'TELEGRAM_API_TOKEN: "<YOUR_TOKEN>"' > $VAULT_FILE
 echo 'TELEGRAM_LIST_OF_ADMIN_IDS: "<COMMA_SEPARATED_LIST_OF_TELEGRAM_USER_IDS>"' >> $VAULT_FILE
-echo 'GOOGLE_SPREADSHEET_ID: "<YOUR_SPREADSHEET_ID>"' >> $VAULT_FILE
-echo 'GOOGLE_RANGE_NAME: "A1:C2"' >> $VAULT_FILE
-echo 'GOOGLE_APPLICATION_CREDENTIALS_PATH: "~/.service_account.json"' >> $VAULT_FILE
+echo 'STORE_SHEET_ID: "<YOUR_STORE_SHEET_ID>"' >> $VAULT_FILE
+echo 'LOAD_SHEET_ID: "<YOUR_LOAD_SHEET_ID>"' >> $VAULT_FILE
+echo 'SHEET_CREDENTIALS_PATH: "~/.service_account.json"' >> $VAULT_FILE
 
 # How to get a Google service account file (https://developers.google.com/workspace/guides/get-started)
 echo 'GOOGLE_APPLICATION_CREDENTIALS_FILE: <GOOGLE_SERVICE_ACCOUNT_JSON>' >> $VAULT_FILE

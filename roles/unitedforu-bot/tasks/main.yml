@@ -19,8 +19,8 @@
     env:
       TELEGRAM_API_TOKEN: "{{ TELEGRAM_API_TOKEN }}"
       TELEGRAM_LIST_OF_ADMIN_IDS: "{{ TELEGRAM_LIST_OF_ADMIN_IDS }}"
-      GOOGLE_SPREADSHEET_ID: "{{ GOOGLE_SPREADSHEET_ID }}"
-      GOOGLE_RANGE_NAME: "{{ GOOGLE_RANGE_NAME }}"
-      GOOGLE_APPLICATION_CREDENTIALS_PATH: "{{ GOOGLE_APPLICATION_CREDENTIALS_PATH }}"
+      STORE_SHEET_ID: "{{ STORE_SHEET_ID }}"
+      LOAD_SHEET_ID: "{{ LOAD_SHEET_ID }}"
+      SHEET_CREDENTIALS_PATH: "{{ SHEET_CREDENTIALS_PATH }}"
     volumes:
       - /home/{{ system_user }}/.service_account.json:/root/.service_account.json
