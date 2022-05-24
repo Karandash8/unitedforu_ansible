@@ -15,6 +15,7 @@
     name: "{{ container_name }}"
     image: "{{dockerhub_account}}/{{image_name}}:{{image_tag}}"
     recreate: yes
+    pull: yes
     state: "{{ container_state }}"
     env:
       TELEGRAM_API_TOKEN: "{{ TELEGRAM_API_TOKEN }}"
