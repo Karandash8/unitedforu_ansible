@@ -1,6 +1,6 @@
 ---
 - name: Host preconfiguration
-  hosts: all
+  hosts: telegram_bot
   become: yes
   roles:
     - roles/users
